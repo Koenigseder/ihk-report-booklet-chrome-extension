@@ -1,5 +1,7 @@
 # IHK report booklet Chrome extension
 
+**_Get the extension here &rarr; [IHK Berichtsheft Qualifikationsgruppen](https://chrome.google.com/webstore/detail/ihk-berichtsheft-qualifik/dcjaiomabpdhmfnmphpkmjcaljomhipc)_**
+
 This Chrome extension is a little helper when using the IHK report booklet (<https://bildung.ihk.de>).
 
 As a user of the IHK tool you have to note down your doings of the day and select for every bullet point various qualifications. It is not rare that you select the same qualifications for different doings and clicking through each and every qualification for each doing can be really tidious and time consuming.
