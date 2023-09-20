@@ -23,4 +23,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           base-branch: master
           semver-prefix: v
-          semver-start-version: 1.0.5
+          semver-start-version: 1.0.6
