@@ -2,10 +2,10 @@ name: Create release
 
 on:
   pull_request:
-    # types:
-    #   - closed
-    # branches:
-    #   - master
+    types:
+      - closed
+    branches:
+      - master
 
 jobs:
   create-release:
@@ -23,4 +23,20 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           base-branch: master
           semver-prefix: v
-          semver-start-version: 1.0.6
+          semver-start-version: 1.0.5
+
+      - name: Output result (new release)
+        if: ${{ steps.create-release.outputs.new-release-tag != '' }}
+        env:
+          NEW_RELEASE_TAG: ${{ steps.create-release.outputs.new-release-tag }}
+        run: |
+          printf "### :heavy_check_mark: Created new release for this PR\n\nNew release: \`$NEW_RELEASE_TAG\`" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Output result (no new release)
+        if: ${{ steps.create-release.outputs.new-release-tag == '' }}
+        env:
+          MAJOR_RELEASE_LABEL: ${{ steps.create-release.outputs.major-release-label }}
+          MINOR_RELEASE_LABEL: ${{ steps.create-release.outputs.minor-release-label }}
+          PATCH_RELEASE_LABEL: ${{ steps.create-release.outputs.patch-release-label }}
+        run: |
+          printf "### :x: No new release was created for this PR\n\nIn order to create a release set a valid label:\n\n- Major release: \`$MAJOR_RELEASE_LABEL\`\n- Minor release: \`$MINOR_RELEASE_LABEL\`\n- Patch release: \`$PATCH_RELEASE_LABEL\`" >> "$GITHUB_STEP_SUMMARY"
