@@ -2,10 +2,10 @@ name: Create release
 
 on:
   pull_request:
-    types:
-      - closed
-    branches:
-      - master
+    # types:
+    #   - closed
+    # branches:
+    #   - master
 
 jobs:
   create-release:
