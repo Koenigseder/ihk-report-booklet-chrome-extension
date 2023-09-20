@@ -88,9 +88,6 @@ class GroupPage {
     for (let i = 0; i < btnDel.length; i++) {
       btnDel[i].addEventListener("click", () => {
         this.groups.splice(i, 1);
-        chrome.storage.sync.set({
-          groups: JSON.stringify(this.groups),
-        });
         this.loadGroupList();
       });
     }
@@ -110,8 +107,9 @@ class GroupPage {
       this.modalContainer.style.display = "flex";
     });
 
-    this.btnCloseModal.addEventListener("click", () => {
+    this.btnCloseModal.addEventListener("click", async () => {
       this.modalContainer.style.display = "none";
+      this.groups = await this.fetchGroups();
     });
 
     this.btnAddQualificationToGroup.addEventListener("click", () => {
@@ -215,7 +213,9 @@ class GroupPage {
     let newGroups;
 
     const newGroup = {
-      id: currentGroups[currentGroups.length - 1] ? currentGroups[currentGroups.length - 1].id + 1 : 0,
+      id: currentGroups[currentGroups.length - 1]
+        ? currentGroups[currentGroups.length - 1].id + 1
+        : 0,
       title: this.inputQualificationGroupName.value.trim(),
       qualifications: this.modalQualifications,
     };
