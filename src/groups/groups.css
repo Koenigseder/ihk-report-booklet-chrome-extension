@@ -153,13 +153,24 @@ button:disabled {
 .modal input {
   color: white;
   font-size: 1.3em;
-  padding: 0.2em;
+  padding: 0.3em;
   background: none;
-  border-radius: 0.5em;
+  border-radius: 1em;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .modal input:focus {
   outline: none;
+  box-shadow: 0px 0px 15px rgba(66, 66, 66, 0.75);
+}
+
+.modal #btn-add-qualification {
+  border: none !important;
+}
+
+.modal #btn-add-qualification:focus {
+  box-shadow: none !important;
 }
 
 .modal hr {
