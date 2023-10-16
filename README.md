@@ -22,3 +22,8 @@ Since the IHK tool doesn't offer some kind of grouping option for those qualific
 6. Reload the IHK tool and click on the qualifications button. Now there is a new popup with the groups you defined
 
 You can always edit and delete your groups as you want.
+
+## Privacy Policy
+
+This extension does not collect any user data and does not share any data with anyone. Not with the developers, not with other users or with other third parties.
+The user can create groups of qualifications which are stored 100% locally within the browser.
