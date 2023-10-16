@@ -49,7 +49,7 @@ button:hover {
 }
 
 button:disabled {
-  background: gray;
+  background: rgb(128, 128, 128);
   cursor: not-allowed;
 }
 
@@ -136,7 +136,6 @@ button:disabled {
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -150,7 +149,7 @@ button:disabled {
   overflow-x: hidden;
 }
 
-.modal input {
+.modal input:not(.btn-del-qualification-from-list) {
   color: white;
   font-size: 1.3em;
   padding: 0.3em;
@@ -160,9 +159,9 @@ button:disabled {
   border-left: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-.modal input:focus {
+.modal input:focus:not(.btn-del-qualification-from-list) {
   outline: none;
-  box-shadow: 0px 0px 15px rgba(66, 66, 66, 0.75);
+  box-shadow: 0 0 15px rgba(66, 66, 66, 0.75);
 }
 
 .modal #btn-add-qualification {
