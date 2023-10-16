@@ -5,7 +5,7 @@ class GroupPage {
 
     // Inputs
     this.inputQualificationGroupName = document.getElementById(
-      "qualification-group-name"
+      "qualification-group-name",
     );
     this.inputAddQualificationToGroup =
       document.getElementById("qualification-name");
@@ -14,7 +14,7 @@ class GroupPage {
     this.btnNewGroup = document.getElementById("btn-new-group");
     this.btnCloseModal = document.getElementById("btn-modal-close");
     this.btnAddQualificationToGroup = document.getElementById(
-      "btn-add-qualification"
+      "btn-add-qualification",
     );
     this.btnSaveGroup = document.getElementById("btn-save-group");
     this.btnGitHub = document.getElementById("btn-github");
@@ -64,10 +64,10 @@ class GroupPage {
     }
 
     const btnsEdit = document.getElementsByClassName(
-      "btn-edit-qualification-group"
+      "btn-edit-qualification-group",
     );
     const btnDel = document.getElementsByClassName(
-      "btn-del-qualification-group"
+      "btn-del-qualification-group",
     );
 
     for (let i = 0; i < btnsEdit.length; i++) {
@@ -88,8 +88,13 @@ class GroupPage {
     for (let i = 0; i < btnDel.length; i++) {
       btnDel[i].addEventListener("click", () => {
         this.groups.splice(i, 1);
+
+        chrome.storage.sync.set({
+          groups: JSON.stringify(this.groups),
+        });
+
         this.loadGroupList();
-      });
+      }, { once: true });
     }
   }
 
@@ -125,7 +130,7 @@ class GroupPage {
     this.btnGitHub.addEventListener("click", () => {
       window.open(
         "https://github.com/Koenigseder/ihk-report-booklet-chrome-extension",
-        "_blank"
+        "_blank",
       );
     });
 
@@ -141,7 +146,6 @@ class GroupPage {
     if (!enteredQualification) return;
 
     this.modalQualifications.push(enteredQualification);
-
     this.loadModalQualificationsList();
   }
 
@@ -178,7 +182,7 @@ class GroupPage {
     }
 
     const btnsRemove = document.getElementsByClassName(
-      "btn-del-qualification-from-list"
+      "btn-del-qualification-from-list",
     );
 
     for (let i = 0; i < btnsRemove.length; i++) {
